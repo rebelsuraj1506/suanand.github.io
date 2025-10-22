@@ -130,7 +130,7 @@ const Portfolio = () => {
               zIndex: -1
             }}></div>
             <img 
-              src="/suraj.png" 
+              src="./suraj.png" 
               alt="Suraj Anand" 
               style={{
                 width: 200,
@@ -144,7 +144,51 @@ const Portfolio = () => {
               }}
               onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+              onError={(e) => {
+                console.log('Image failed to load, showing fallback');
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+              onLoad={(e) => {
+                console.log('Image loaded successfully');
+                e.target.nextSibling.style.display = 'none';
+              }}
             />
+            <div style={{
+              width: 200,
+              height: 200,
+              borderRadius: "50%",
+              background: "linear-gradient(45deg, #ff6b9d, #c44569, #f8b500)",
+              display: "none",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "4rem",
+              fontWeight: "bold",
+              color: "white",
+              border: "6px solid rgba(255,255,255,0.3)",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+              transition: 'transform 0.3s ease',
+              cursor: 'pointer',
+              position: "relative",
+              overflow: "hidden"
+            }}
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              <div style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3))",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "4rem",
+                fontWeight: "bold"
+              }}>SA</div>
+            </div>
           </div>
           <h1 style={{ 
             color: "white", 
@@ -575,173 +619,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section 
-        style={{
-          ...sectionStyle,
-          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-          opacity: isVisible ? 1 : 0,
-          transition: 'all 0.8s ease-out 1.0s'
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.transform = 'translateY(-5px)';
-          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
-        }}
-      >
-        <h2 style={sectionTitle}>🔬 Additional Projects</h2>
-        <div style={{ display: "grid", gap: 20, marginTop: 15 }}>
-          <div style={{ 
-            display: "flex", 
-            alignItems: "center", 
-            gap: 20, 
-            padding: 20, 
-            background: "rgba(255,255,255,0.1)", 
-            borderRadius: 15,
-            border: "1px solid rgba(255,255,255,0.2)",
-            transition: "all 0.3s ease",
-            cursor: "pointer"
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.15)";
-            e.target.style.transform = "translateX(10px)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.1)";
-            e.target.style.transform = "translateX(0)";
-          }}
-          >
-            <div style={{
-              width: 80,
-              height: 80,
-              background: "linear-gradient(45deg, #ff6b9d, #c44569)",
-              borderRadius: 15,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "2rem",
-              boxShadow: "0 8px 20px rgba(255,107,157,0.3)"
-            }}>🧠</div>
-            <div>
-              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>Cache Replacement Policy Analysis</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>LRU, RRIP (28% hit rate improvement)</p>
-            </div>
-          </div>
-          
-          <div style={{ 
-            display: "flex", 
-            alignItems: "center", 
-            gap: 20, 
-            padding: 20, 
-            background: "rgba(255,255,255,0.1)", 
-            borderRadius: 15,
-            border: "1px solid rgba(255,255,255,0.2)",
-            transition: "all 0.3s ease",
-            cursor: "pointer"
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.15)";
-            e.target.style.transform = "translateX(10px)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.1)";
-            e.target.style.transform = "translateX(0)";
-          }}
-          >
-            <div style={{
-              width: 80,
-              height: 80,
-              background: "linear-gradient(45deg, #f8b500, #ff6b9d)",
-              borderRadius: 15,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "2rem",
-              boxShadow: "0 8px 20px rgba(248,181,0,0.3)"
-            }}>🏆</div>
-            <div>
-              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>RSNA 2023 Abdominal Trauma Detection</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>Bronze medal on Kaggle (Top 91st rank)</p>
-            </div>
-          </div>
-          
-          <div style={{ 
-            display: "flex", 
-            alignItems: "center", 
-            gap: 20, 
-            padding: 20, 
-            background: "rgba(255,255,255,0.1)", 
-            borderRadius: 15,
-            border: "1px solid rgba(255,255,255,0.2)",
-            transition: "all 0.3s ease",
-            cursor: "pointer"
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.15)";
-            e.target.style.transform = "translateX(10px)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.1)";
-            e.target.style.transform = "translateX(0)";
-          }}
-          >
-            <div style={{
-              width: 80,
-              height: 80,
-              background: "linear-gradient(45deg, #c44569, #f8b500)",
-              borderRadius: 15,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "2rem",
-              boxShadow: "0 8px 20px rgba(196,69,105,0.3)"
-            }}>🚗</div>
-            <div>
-              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>Vehicle Number Plate Detection</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>CNN & YOLO implementation</p>
-            </div>
-          </div>
-          
-          <div style={{ 
-            display: "flex", 
-            alignItems: "center", 
-            gap: 20, 
-            padding: 20, 
-            background: "rgba(255,255,255,0.1)", 
-            borderRadius: 15,
-            border: "1px solid rgba(255,255,255,0.2)",
-            transition: "all 0.3s ease",
-            cursor: "pointer"
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.15)";
-            e.target.style.transform = "translateX(10px)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = "rgba(255,255,255,0.1)";
-            e.target.style.transform = "translateX(0)";
-          }}
-          >
-            <div style={{
-              width: 80,
-              height: 80,
-              background: "linear-gradient(45deg, #ff6b9d, #c44569)",
-              borderRadius: 15,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "2rem",
-              boxShadow: "0 8px 20px rgba(255,107,157,0.3)"
-            }}>🤖</div>
-            <div>
-              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>NLP Sentiment Analysis</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>BERT and Falcon 7B fine-tuning</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section 
         style={{
