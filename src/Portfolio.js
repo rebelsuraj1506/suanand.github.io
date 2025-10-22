@@ -57,7 +57,7 @@ const Portfolio = () => {
       `}</style>
       <div style={{ 
         fontFamily: "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", 
-        width: "100vw", 
+        width: "100%", 
         margin: 0, 
         padding: 0, 
         background: `
@@ -68,7 +68,7 @@ const Portfolio = () => {
         `,
         backgroundSize: "100% 100%, 100% 100%, 100% 100%, 100% 100%",
         backgroundAttachment: "fixed",
-        minHeight: "100vh",
+        minHeight: "100%",
         position: "relative",
         overflow: "visible"
       }}>
