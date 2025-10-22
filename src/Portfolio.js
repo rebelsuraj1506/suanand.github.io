@@ -1,131 +1,718 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Portfolio = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", maxWidth: 900, margin: "auto", padding: 20, backgroundColor: "#f9f9f9" }}>
-      <header style={{ textAlign: "center", marginBottom: 40 }}>
-        <div style={{ marginBottom: 20 }}>
+    <>
+      <style>{`
+        @keyframes rotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .floating {
+          animation: float 3s ease-in-out infinite;
+        }
+        .pulse {
+          animation: pulse 2s ease-in-out infinite;
+        }
+      `}</style>
+      <div style={{ 
+        fontFamily: "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", 
+        maxWidth: 1200, 
+        margin: "auto", 
+        padding: 20, 
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        minHeight: "100vh"
+      }}>
+      <header style={{ 
+        textAlign: "center", 
+        marginBottom: 60,
+        transform: isVisible ? 'translateY(0)' : 'translateY(-50px)',
+        opacity: isVisible ? 1 : 0,
+        transition: 'all 0.8s ease-out'
+      }}>
+        <div style={{ 
+          marginBottom: 30,
+          position: 'relative',
+          display: 'inline-block'
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: -10,
+            left: -10,
+            right: -10,
+            bottom: -10,
+            background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4)',
+            borderRadius: '50%',
+            animation: 'rotate 3s linear infinite',
+            zIndex: -1
+          }}></div>
           <img 
             src="/suraj.png" 
             alt="Suraj Anand" 
             style={{ 
-              width: 150, 
-              height: 150, 
+              width: 180, 
+              height: 180, 
               borderRadius: "50%", 
               objectFit: "cover",
-              border: "4px solid #0070f3",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
-            }} 
+              border: "6px solid white",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+              transition: 'transform 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
           />
         </div>
-        <h1 style={{ color: "#222" }}>Suraj Anand</h1>
-        <p style={{ fontWeight: "bold", fontSize: 18 }}>
+        <h1 style={{ 
+          color: "white", 
+          fontSize: "3.5rem",
+          fontWeight: "700",
+          margin: "20px 0",
+          textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+          background: "linear-gradient(45deg, #fff, #f0f0f0)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent"
+        }}>Suraj Anand</h1>
+        <p style={{ 
+          fontWeight: "600", 
+          fontSize: "1.4rem",
+          color: "rgba(255,255,255,0.9)",
+          margin: "10px 0",
+          textShadow: "1px 1px 2px rgba(0,0,0,0.3)"
+        }}>
           M.Tech Computer Science & Engineering Student | NVIDIA ASIC Engineer
         </p>
-        <p>
-          Phone: <a href="tel:+917050412421" style={{ color: "#0070f3" }}>91 70504 12421</a> | Email: <a href="mailto:surajanand200@gmail.com" style={{ color: "#0070f3" }}>surajanand200@gmail.com</a>
-        </p>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '30px',
+          flexWrap: 'wrap',
+          marginTop: '20px'
+        }}>
+          <a href="tel:+917050412421" style={{ 
+            color: "white", 
+            textDecoration: "none",
+            padding: "12px 24px",
+            background: "rgba(255,255,255,0.2)",
+            borderRadius: "25px",
+            border: "2px solid rgba(255,255,255,0.3)",
+            transition: "all 0.3s ease",
+            backdropFilter: "blur(10px)"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.3)";
+            e.target.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.2)";
+            e.target.style.transform = "translateY(0)";
+          }}
+          >📞 91 70504 12421</a>
+          <a href="mailto:surajanand200@gmail.com" style={{ 
+            color: "white", 
+            textDecoration: "none",
+            padding: "12px 24px",
+            background: "rgba(255,255,255,0.2)",
+            borderRadius: "25px",
+            border: "2px solid rgba(255,255,255,0.3)",
+            transition: "all 0.3s ease",
+            backdropFilter: "blur(10px)"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.3)";
+            e.target.style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.2)";
+            e.target.style.transform = "translateY(0)";
+          }}
+          >✉️ surajanand200@gmail.com</a>
+        </div>
       </header>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>Education</h2>
-        <ul>
-          <li><b>IIT Bhubaneswar</b> — M.Tech Computer Science (2023-2025), CGPA: 8.06</li>
-          <li><b>Bhagalpur College of Engineering</b> — B.Tech Computer Science (2018-2021), CGPA: 8.08</li>
-        </ul>
+      <section 
+        style={{
+          ...sectionStyle,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          opacity: isVisible ? 1 : 0,
+          transition: 'all 0.8s ease-out 0.2s'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-5px)';
+          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+        }}
+      >
+        <h2 style={sectionTitle}>🎓 Education</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{
+            background: 'rgba(255,255,255,0.1)',
+            padding: '20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transition: 'all 0.3s ease'
+          }}>
+            <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.3rem' }}>IIT Bhubaneswar</h3>
+            <p style={{ color: 'rgba(255,255,255,0.9)', margin: '5px 0' }}>M.Tech Computer Science (2023-2025)</p>
+            <p style={{ color: '#4ecdc4', margin: '5px 0', fontWeight: '600' }}>CGPA: 8.06</p>
+          </div>
+          <div style={{
+            background: 'rgba(255,255,255,0.1)',
+            padding: '20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transition: 'all 0.3s ease'
+          }}>
+            <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.3rem' }}>Bhagalpur College of Engineering</h3>
+            <p style={{ color: 'rgba(255,255,255,0.9)', margin: '5px 0' }}>B.Tech Computer Science (2018-2021)</p>
+            <p style={{ color: '#4ecdc4', margin: '5px 0', fontWeight: '600' }}>CGPA: 8.08</p>
+          </div>
+        </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>Skills</h2>
-        <p><b>Programming Languages:</b> C, C++, Python</p>
-        <p><b>Technologies:</b> Intel Pin, Valgrind, Tensorflow, CNN, YOLO, BERT</p>
-        <p><b>Web & Databases:</b> HTML, CSS, JavaScript, React.js, Bootstrap, MySQL</p>
-        <p><b>Tools:</b> VS Code, Google Colab, Git, Docker, AWS</p>
-        <p><b>Core Concepts:</b> Data Structures, Algorithms, OOP, Operating Systems</p>
-      </section>
-
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>Professional Experience</h2>
-        <h3>NVIDIA ASIC Engineer</h3>
-        <p><i>Jan 2025 - July 2025</i></p>
-        <ul>
-          <li>EDA workload performance analysis and optimization</li>
-          <li>Implemented multi-stage checkpoint generation using SimPoint</li>
-          <li>Correlated hardware and software performance metrics for bottleneck analysis</li>
-        </ul>
-      </section>
-
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>Research & Projects</h2>
-        <div style={{ display: "grid", gap: 20, marginTop: 15 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
-            <img src="/project1.jpg" alt="Cache Analysis" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
-            <div>
-              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>Cache Replacement Policy Analysis</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>LRU, RRIP (28% hit rate improvement)</p>
+      <section 
+        style={{
+          ...sectionStyle,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          opacity: isVisible ? 1 : 0,
+          transition: 'all 0.8s ease-out 0.4s'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-5px)';
+          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+        }}
+      >
+        <h2 style={sectionTitle}>💻 Skills</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+          <div>
+            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Programming Languages</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              {['C', 'C++', 'Python'].map((skill, index) => (
+                <span key={index} style={{
+                  background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                  color: 'white',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                }}
+                >{skill}</span>
+              ))}
             </div>
           </div>
           
-          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
-            <img src="/project2.jpg" alt="RSNA Challenge" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
-            <div>
-              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>RSNA 2023 Abdominal Trauma Detection</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>Bronze medal on Kaggle (Top 91st rank)</p>
+          <div>
+            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Technologies</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              {['Intel Pin', 'Valgrind', 'Tensorflow', 'CNN', 'YOLO', 'BERT'].map((skill, index) => (
+                <span key={index} style={{
+                  background: 'linear-gradient(45deg, #45b7d1, #96ceb4)',
+                  color: 'white',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                }}
+                >{skill}</span>
+              ))}
             </div>
           </div>
           
-          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
-            <img src="/project3.jpg" alt="Vehicle Detection" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
-            <div>
-              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>Vehicle Number Plate Detection</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>CNN & YOLO implementation</p>
-            </div>
-          </div>
-          
-          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
-            <img src="/project4.jpg" alt="NLP Analysis" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
-            <div>
-              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>NLP Sentiment Analysis</h4>
-              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>BERT and Falcon 7B fine-tuning</p>
+          <div>
+            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Web & Databases</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              {['HTML', 'CSS', 'JavaScript', 'React.js', 'Bootstrap', 'MySQL'].map((skill, index) => (
+                <span key={index} style={{
+                  background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                  color: 'white',
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                }}
+                >{skill}</span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>Achievements</h2>
-        <ul>
-          <li>GATE AIR-1267 (2023)</li>
-          <li>Kaggle RSNA Challenge Bronze Medalist (91st rank)</li>
-          <li>BCECELE - 8th rank (2018)</li>
-          <li>Teaching Assistant - Compiler Design, Machine Learning courses</li>
-        </ul>
+      <section 
+        style={{
+          ...sectionStyle,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          opacity: isVisible ? 1 : 0,
+          transition: 'all 0.8s ease-out 0.6s'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-5px)';
+          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+        }}
+      >
+        <h2 style={sectionTitle}>💼 Professional Experience</h2>
+        <div style={{
+          background: 'rgba(255,255,255,0.1)',
+          padding: '25px',
+          borderRadius: '15px',
+          border: '1px solid rgba(255,255,255,0.2)'
+        }}>
+          <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.4rem' }}>🚀 NVIDIA ASIC Engineer</h3>
+          <p style={{ color: '#4ecdc4', margin: '0 0 20px 0', fontSize: '1.1rem', fontWeight: '600' }}>Jan 2025 - July 2025</p>
+          <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px' }}>
+            <li style={{ marginBottom: '8px' }}>EDA workload performance analysis and optimization</li>
+            <li style={{ marginBottom: '8px' }}>Implemented multi-stage checkpoint generation using SimPoint</li>
+            <li style={{ marginBottom: '8px' }}>Correlated hardware and software performance metrics for bottleneck analysis</li>
+          </ul>
+        </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2 style={sectionTitle}>Contact</h2>
-        <p>Email: <a href="mailto:surajanand200@gmail.com" style={{ color: "#0070f3" }}>surajanand200@gmail.com</a></p>
-        <p>Phone: <a href="tel:+917050412421" style={{ color: "#0070f3" }}>91 70504 12421</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/surajanand" target="_blank" rel="noreferrer" style={{ color: "#0070f3" }}>linkedin.com/in/surajanand</a></p>
-        <p>GitHub: <a href="https://github.com/surajanand" target="_blank" rel="noreferrer" style={{ color: "#0070f3" }}>github.com/surajanand</a></p>
+      <section 
+        style={{
+          ...sectionStyle,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          opacity: isVisible ? 1 : 0,
+          transition: 'all 0.8s ease-out 0.8s'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-5px)';
+          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+        }}
+      >
+        <h2 style={sectionTitle}>🔬 Research & Projects</h2>
+        <div style={{ display: "grid", gap: 20, marginTop: 15 }}>
+          <div style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            gap: 20, 
+            padding: 20, 
+            background: "rgba(255,255,255,0.1)", 
+            borderRadius: 15,
+            border: "1px solid rgba(255,255,255,0.2)",
+            transition: "all 0.3s ease",
+            cursor: "pointer"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.15)";
+            e.target.style.transform = "translateX(10px)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.1)";
+            e.target.style.transform = "translateX(0)";
+          }}
+          >
+            <div style={{
+              width: 80,
+              height: 80,
+              background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)",
+              borderRadius: 15,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "2rem"
+            }}>🧠</div>
+            <div>
+              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>Cache Replacement Policy Analysis</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>LRU, RRIP (28% hit rate improvement)</p>
+            </div>
+          </div>
+          
+          <div style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            gap: 20, 
+            padding: 20, 
+            background: "rgba(255,255,255,0.1)", 
+            borderRadius: 15,
+            border: "1px solid rgba(255,255,255,0.2)",
+            transition: "all 0.3s ease",
+            cursor: "pointer"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.15)";
+            e.target.style.transform = "translateX(10px)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.1)";
+            e.target.style.transform = "translateX(0)";
+          }}
+          >
+            <div style={{
+              width: 80,
+              height: 80,
+              background: "linear-gradient(45deg, #45b7d1, #96ceb4)",
+              borderRadius: 15,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "2rem"
+            }}>🏆</div>
+            <div>
+              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>RSNA 2023 Abdominal Trauma Detection</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>Bronze medal on Kaggle (Top 91st rank)</p>
+            </div>
+          </div>
+          
+          <div style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            gap: 20, 
+            padding: 20, 
+            background: "rgba(255,255,255,0.1)", 
+            borderRadius: 15,
+            border: "1px solid rgba(255,255,255,0.2)",
+            transition: "all 0.3s ease",
+            cursor: "pointer"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.15)";
+            e.target.style.transform = "translateX(10px)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.1)";
+            e.target.style.transform = "translateX(0)";
+          }}
+          >
+            <div style={{
+              width: 80,
+              height: 80,
+              background: "linear-gradient(45deg, #667eea, #764ba2)",
+              borderRadius: 15,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "2rem"
+            }}>🚗</div>
+            <div>
+              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>Vehicle Number Plate Detection</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>CNN & YOLO implementation</p>
+            </div>
+          </div>
+          
+          <div style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            gap: 20, 
+            padding: 20, 
+            background: "rgba(255,255,255,0.1)", 
+            borderRadius: 15,
+            border: "1px solid rgba(255,255,255,0.2)",
+            transition: "all 0.3s ease",
+            cursor: "pointer"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.15)";
+            e.target.style.transform = "translateX(10px)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255,255,255,0.1)";
+            e.target.style.transform = "translateX(0)";
+          }}
+          >
+            <div style={{
+              width: 80,
+              height: 80,
+              background: "linear-gradient(45deg, #ff9a9e, #fecfef)",
+              borderRadius: 15,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "2rem"
+            }}>🤖</div>
+            <div>
+              <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>NLP Sentiment Analysis</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "rgba(255,255,255,0.8)" }}>BERT and Falcon 7B fine-tuning</p>
+            </div>
+          </div>
+        </div>
       </section>
-    </div>
+
+      <section 
+        style={{
+          ...sectionStyle,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          opacity: isVisible ? 1 : 0,
+          transition: 'all 0.8s ease-out 1.0s'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-5px)';
+          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+        }}
+      >
+        <h2 style={sectionTitle}>🏆 Achievements</h2>
+        <div style={{ display: 'grid', gap: '15px' }}>
+          {[
+            { icon: '🎯', title: 'GATE AIR-1267', year: '2023', desc: 'All India Rank 1267' },
+            { icon: '🥉', title: 'Kaggle RSNA Challenge', year: '2023', desc: 'Bronze Medalist (91st rank)' },
+            { icon: '🏅', title: 'BCECELE', year: '2018', desc: '8th rank' },
+            { icon: '👨‍🏫', title: 'Teaching Assistant', year: '2023-2025', desc: 'Compiler Design, Machine Learning courses' }
+          ].map((achievement, index) => (
+            <div key={index} style={{
+              background: 'rgba(255,255,255,0.1)',
+              padding: '20px',
+              borderRadius: '15px',
+              border: '1px solid rgba(255,255,255,0.2)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '15px',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(255,255,255,0.15)';
+              e.target.style.transform = 'translateX(10px)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(255,255,255,0.1)';
+              e.target.style.transform = 'translateX(0)';
+            }}
+            >
+              <div style={{ fontSize: '2rem' }}>{achievement.icon}</div>
+              <div>
+                <h4 style={{ color: 'white', margin: '0 0 5px 0', fontSize: '1.1rem' }}>{achievement.title}</h4>
+                <p style={{ color: '#4ecdc4', margin: '0 0 3px 0', fontSize: '0.9rem', fontWeight: '600' }}>{achievement.year}</p>
+                <p style={{ color: 'rgba(255,255,255,0.8)', margin: 0, fontSize: '0.9rem' }}>{achievement.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section 
+        style={{
+          ...sectionStyle,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          opacity: isVisible ? 1 : 0,
+          transition: 'all 0.8s ease-out 1.2s'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-5px)';
+          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+        }}
+      >
+        <h2 style={sectionTitle}>📞 Contact</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+          <a href="mailto:surajanand200@gmail.com" style={{
+            background: 'rgba(255,255,255,0.1)',
+            padding: '20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            textDecoration: 'none',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.2)';
+            e.target.style.transform = 'translateY(-5px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.1)';
+            e.target.style.transform = 'translateY(0)';
+          }}
+          >
+            <div style={{ fontSize: '2rem' }}>✉️</div>
+            <div>
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>Email</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>surajanand200@gmail.com</p>
+            </div>
+          </a>
+          
+          <a href="tel:+917050412421" style={{
+            background: 'rgba(255,255,255,0.1)',
+            padding: '20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            textDecoration: 'none',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.2)';
+            e.target.style.transform = 'translateY(-5px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.1)';
+            e.target.style.transform = 'translateY(0)';
+          }}
+          >
+            <div style={{ fontSize: '2rem' }}>📱</div>
+            <div>
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>Phone</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>91 70504 12421</p>
+            </div>
+          </a>
+          
+          <a href="https://linkedin.com/in/surajanand" target="_blank" rel="noreferrer" style={{
+            background: 'rgba(255,255,255,0.1)',
+            padding: '20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            textDecoration: 'none',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.2)';
+            e.target.style.transform = 'translateY(-5px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.1)';
+            e.target.style.transform = 'translateY(0)';
+          }}
+          >
+            <div style={{ fontSize: '2rem' }}>💼</div>
+            <div>
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>LinkedIn</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>linkedin.com/in/surajanand</p>
+            </div>
+          </a>
+          
+          <a href="https://github.com/surajanand" target="_blank" rel="noreferrer" style={{
+            background: 'rgba(255,255,255,0.1)',
+            padding: '20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            textDecoration: 'none',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.2)';
+            e.target.style.transform = 'translateY(-5px)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(255,255,255,0.1)';
+            e.target.style.transform = 'translateY(0)';
+          }}
+          >
+            <div style={{ fontSize: '2rem' }}>🐙</div>
+            <div>
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>GitHub</h4>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>github.com/surajanand</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      </div>
+    </>
   );
 };
 
 const sectionStyle = {
-  backgroundColor: "#fff",
-  marginBottom: 25,
-  padding: "20px 30px",
-  borderRadius: 8,
-  boxShadow: "0 3px 8px rgba(0,0,0,0.1)",
+  background: "rgba(255, 255, 255, 0.1)",
+  backdropFilter: "blur(20px)",
+  border: "1px solid rgba(255, 255, 255, 0.2)",
+  marginBottom: 30,
+  padding: "30px 40px",
+  borderRadius: 20,
+  boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+  transition: "all 0.3s ease",
+  cursor: "pointer",
+  position: "relative",
+  overflow: "hidden"
 };
 
 const sectionTitle = {
-  borderBottom: "2px solid #0070f3",
-  paddingBottom: 5,
-  marginBottom: 15,
-  color: "#0070f3",
+  background: "linear-gradient(45deg, #667eea, #764ba2)",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  fontSize: "1.8rem",
+  fontWeight: "700",
+  marginBottom: 20,
+  position: "relative",
+  paddingBottom: 10
 };
 
 export default Portfolio;
