@@ -401,7 +401,7 @@ const Portfolio = () => {
                 borderRadius: '8px',
                 border: '1px solid rgba(255,255,255,0.2)'
               }}>
-                <h3 style={{ color: 'white', margin: '0 0 6px 0', fontSize: '1rem' }}>IIT Bhubaneswar</h3>
+                <h3 style={{ color: 'white', margin: '0 0 6px 0', fontSize: '1rem' }}>Indian Institute of Technology(IIT) Bhubaneswar</h3>
                 <p style={{ color: 'rgba(255,255,255,0.9)', margin: '2px 0', fontSize: '0.85rem' }}>M.Tech Computer Science (2023-2025)</p>
                 <p style={{ color: '#4ecdc4', margin: '2px 0', fontWeight: '600', fontSize: '0.85rem' }}>CGPA: 8.06</p>
               </div>
