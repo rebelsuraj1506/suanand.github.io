@@ -23,6 +23,11 @@ const Portfolio = () => {
           0%, 100% { transform: scale(1); }
           50% { transform: scale(1.05); }
         }
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -45,9 +50,52 @@ const Portfolio = () => {
         maxWidth: 1200, 
         margin: "auto", 
         padding: 20, 
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        minHeight: "100vh"
+        background: `
+          linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%),
+          radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.2) 0%, transparent 50%)
+        `,
+        backgroundSize: "100% 100%, 100% 100%, 100% 100%, 100% 100%",
+        minHeight: "100vh",
+        position: "relative",
+        overflow: "hidden"
       }}>
+        {/* Geometric Background Elements */}
+        <div style={{
+          position: "absolute",
+          top: "10%",
+          right: "10%",
+          width: "200px",
+          height: "200px",
+          background: "linear-gradient(45deg, rgba(255, 119, 198, 0.1), rgba(120, 219, 255, 0.1))",
+          borderRadius: "50%",
+          filter: "blur(40px)",
+          animation: "float 6s ease-in-out infinite"
+        }}></div>
+        <div style={{
+          position: "absolute",
+          bottom: "20%",
+          left: "5%",
+          width: "150px",
+          height: "150px",
+          background: "linear-gradient(45deg, rgba(120, 119, 198, 0.1), rgba(255, 119, 198, 0.1))",
+          borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+          filter: "blur(30px)",
+          animation: "float 8s ease-in-out infinite reverse"
+        }}></div>
+        <div style={{
+          position: "absolute",
+          top: "60%",
+          right: "20%",
+          width: "100px",
+          height: "100px",
+          background: "linear-gradient(45deg, rgba(120, 219, 255, 0.1), rgba(255, 255, 255, 0.1))",
+          borderRadius: "50%",
+          filter: "blur(20px)",
+          animation: "pulse 4s ease-in-out infinite"
+        }}></div>
+        
       <header style={{ 
         textAlign: "center", 
         marginBottom: 60,
@@ -71,32 +119,53 @@ const Portfolio = () => {
             animation: 'rotate 3s linear infinite',
             zIndex: -1
           }}></div>
-          <img 
-            src="/suraj.png" 
-            alt="Suraj Anand" 
-            style={{ 
-              width: 180, 
-              height: 180, 
-              borderRadius: "50%", 
-              objectFit: "cover",
-              border: "6px solid white",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
-              transition: 'transform 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-          />
+          <div style={{
+            width: 180,
+            height: 180,
+            borderRadius: "50%",
+            background: "linear-gradient(45deg, #ff6b9d, #c44569, #f8b500)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "4rem",
+            fontWeight: "bold",
+            color: "white",
+            border: "6px solid rgba(255,255,255,0.3)",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+            transition: 'transform 0.3s ease',
+            cursor: 'pointer',
+            position: "relative",
+            overflow: "hidden"
+          }}
+          onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+          onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+          >
+            <div style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3))",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "4rem",
+              fontWeight: "bold"
+            }}>SA</div>
+          </div>
         </div>
         <h1 style={{ 
           color: "white", 
           fontSize: "3.5rem",
           fontWeight: "700",
           margin: "20px 0",
-          textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
-          background: "linear-gradient(45deg, #fff, #f0f0f0)",
+          textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+          background: "linear-gradient(45deg, #ff6b9d, #c44569, #f8b500, #ff6b9d)",
+          backgroundSize: "300% 300%",
           WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent"
+          WebkitTextFillColor: "transparent",
+          animation: "gradientShift 3s ease infinite"
         }}>Suraj Anand</h1>
         <p style={{ 
           fontWeight: "600", 
@@ -221,7 +290,7 @@ const Portfolio = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['C', 'C++', 'Python'].map((skill, index) => (
                 <span key={index} style={{
-                  background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                  background: 'linear-gradient(45deg, #ff6b9d, #c44569)',
                   color: 'white',
                   padding: '8px 16px',
                   borderRadius: '20px',
@@ -229,7 +298,7 @@ const Portfolio = () => {
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  boxShadow: '0 4px 15px rgba(255,107,157,0.3)'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'scale(1.1)';
@@ -249,7 +318,7 @@ const Portfolio = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['Intel Pin', 'Valgrind', 'Tensorflow', 'CNN', 'YOLO', 'BERT'].map((skill, index) => (
                 <span key={index} style={{
-                  background: 'linear-gradient(45deg, #45b7d1, #96ceb4)',
+                  background: 'linear-gradient(45deg, #f8b500, #ff6b9d)',
                   color: 'white',
                   padding: '8px 16px',
                   borderRadius: '20px',
@@ -257,7 +326,7 @@ const Portfolio = () => {
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  boxShadow: '0 4px 15px rgba(248,181,0,0.3)'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'scale(1.1)';
@@ -277,7 +346,7 @@ const Portfolio = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['HTML', 'CSS', 'JavaScript', 'React.js', 'Bootstrap', 'MySQL'].map((skill, index) => (
                 <span key={index} style={{
-                  background: 'linear-gradient(45deg, #667eea, #764ba2)',
+                  background: 'linear-gradient(45deg, #c44569, #f8b500)',
                   color: 'white',
                   padding: '8px 16px',
                   borderRadius: '20px',
@@ -285,7 +354,7 @@ const Portfolio = () => {
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                  boxShadow: '0 4px 15px rgba(196,69,105,0.3)'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'scale(1.1)';
@@ -376,12 +445,13 @@ const Portfolio = () => {
             <div style={{
               width: 80,
               height: 80,
-              background: "linear-gradient(45deg, #ff6b6b, #4ecdc4)",
+              background: "linear-gradient(45deg, #ff6b9d, #c44569)",
               borderRadius: 15,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "2rem"
+              fontSize: "2rem",
+              boxShadow: "0 8px 20px rgba(255,107,157,0.3)"
             }}>🧠</div>
             <div>
               <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>Cache Replacement Policy Analysis</h4>
@@ -412,12 +482,13 @@ const Portfolio = () => {
             <div style={{
               width: 80,
               height: 80,
-              background: "linear-gradient(45deg, #45b7d1, #96ceb4)",
+              background: "linear-gradient(45deg, #f8b500, #ff6b9d)",
               borderRadius: 15,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "2rem"
+              fontSize: "2rem",
+              boxShadow: "0 8px 20px rgba(248,181,0,0.3)"
             }}>🏆</div>
             <div>
               <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>RSNA 2023 Abdominal Trauma Detection</h4>
@@ -448,12 +519,13 @@ const Portfolio = () => {
             <div style={{
               width: 80,
               height: 80,
-              background: "linear-gradient(45deg, #667eea, #764ba2)",
+              background: "linear-gradient(45deg, #c44569, #f8b500)",
               borderRadius: 15,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "2rem"
+              fontSize: "2rem",
+              boxShadow: "0 8px 20px rgba(196,69,105,0.3)"
             }}>🚗</div>
             <div>
               <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>Vehicle Number Plate Detection</h4>
@@ -484,12 +556,13 @@ const Portfolio = () => {
             <div style={{
               width: 80,
               height: 80,
-              background: "linear-gradient(45deg, #ff9a9e, #fecfef)",
+              background: "linear-gradient(45deg, #ff6b9d, #c44569)",
               borderRadius: 15,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "2rem"
+              fontSize: "2rem",
+              boxShadow: "0 8px 20px rgba(255,107,157,0.3)"
             }}>🤖</div>
             <div>
               <h4 style={{ margin: "0 0 8px 0", color: "white", fontSize: "1.2rem" }}>NLP Sentiment Analysis</h4>
@@ -628,7 +701,7 @@ const Portfolio = () => {
             </div>
           </a>
           
-          <a href="https://linkedin.com/in/surajanand" target="_blank" rel="noreferrer" style={{
+          <a href="https://www.linkedin.com/in/surajanand2000/" target="_blank" rel="noreferrer" style={{
             background: 'rgba(255,255,255,0.1)',
             padding: '20px',
             borderRadius: '15px',
@@ -656,7 +729,7 @@ const Portfolio = () => {
             </div>
           </a>
           
-          <a href="https://github.com/surajanand" target="_blank" rel="noreferrer" style={{
+          <a href="https://github.com/rebelsuraj1506" target="_blank" rel="noreferrer" style={{
             background: 'rgba(255,255,255,0.1)',
             padding: '20px',
             borderRadius: '15px',
@@ -705,14 +778,16 @@ const sectionStyle = {
 };
 
 const sectionTitle = {
-  background: "linear-gradient(45deg, #667eea, #764ba2)",
+  background: "linear-gradient(45deg, #ff6b9d, #c44569, #f8b500)",
+  backgroundSize: "200% 200%",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   fontSize: "1.8rem",
   fontWeight: "700",
   marginBottom: 20,
   position: "relative",
-  paddingBottom: 10
+  paddingBottom: 10,
+  animation: "gradientShift 4s ease infinite"
 };
 
 export default Portfolio;
