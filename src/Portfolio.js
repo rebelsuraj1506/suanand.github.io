@@ -11,6 +11,16 @@ const Portfolio = () => {
   return (
     <>
       <style>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        html, body {
+          height: 100%;
+          background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+          background-attachment: fixed;
+        }
         @keyframes rotate {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
@@ -57,9 +67,10 @@ const Portfolio = () => {
           radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.2) 0%, transparent 50%)
         `,
         backgroundSize: "100% 100%, 100% 100%, 100% 100%, 100% 100%",
+        backgroundAttachment: "fixed",
         minHeight: "100vh",
         position: "relative",
-        overflow: "hidden"
+        overflow: "visible"
       }}>
         {/* Geometric Background Elements */}
         <div style={{
