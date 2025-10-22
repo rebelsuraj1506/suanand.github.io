@@ -4,6 +4,20 @@ const Portfolio = () => {
   return (
     <div style={{ fontFamily: "Arial, sans-serif", maxWidth: 900, margin: "auto", padding: 20, backgroundColor: "#f9f9f9" }}>
       <header style={{ textAlign: "center", marginBottom: 40 }}>
+        <div style={{ marginBottom: 20 }}>
+          <img 
+            src="/suraj.png" 
+            alt="Suraj Anand" 
+            style={{ 
+              width: 150, 
+              height: 150, 
+              borderRadius: "50%", 
+              objectFit: "cover",
+              border: "4px solid #0070f3",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
+            }} 
+          />
+        </div>
         <h1 style={{ color: "#222" }}>Suraj Anand</h1>
         <p style={{ fontWeight: "bold", fontSize: 18 }}>
           M.Tech Computer Science & Engineering Student | NVIDIA ASIC Engineer
@@ -43,13 +57,39 @@ const Portfolio = () => {
 
       <section style={sectionStyle}>
         <h2 style={sectionTitle}>Research & Projects</h2>
-        <ul>
-          <li>Cache Replacement Policy Performance Analysis: LRU, RRIP (28% hit rate improvement)</li>
-          <li>RSNA 2023 Abdominal Trauma Detection — Bronze medal on Kaggle (Top 91st rank)</li>
-          <li>Vehicle Number Plate Detection & Recognition using CNN & YOLO</li>
-          <li>NLP Sentiment Analysis with BERT and Falcon 7B fine-tuning</li>
-          <li>Hostel Management System Web App (HTML, CSS, PHP, MySQL)</li>
-        </ul>
+        <div style={{ display: "grid", gap: 20, marginTop: 15 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
+            <img src="/project1.jpg" alt="Cache Analysis" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
+            <div>
+              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>Cache Replacement Policy Analysis</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>LRU, RRIP (28% hit rate improvement)</p>
+            </div>
+          </div>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
+            <img src="/project2.jpg" alt="RSNA Challenge" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
+            <div>
+              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>RSNA 2023 Abdominal Trauma Detection</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>Bronze medal on Kaggle (Top 91st rank)</p>
+            </div>
+          </div>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
+            <img src="/project3.jpg" alt="Vehicle Detection" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
+            <div>
+              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>Vehicle Number Plate Detection</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>CNN & YOLO implementation</p>
+            </div>
+          </div>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: 15, padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}>
+            <img src="/project4.jpg" alt="NLP Analysis" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: 4 }} />
+            <div>
+              <h4 style={{ margin: "0 0 5px 0", color: "#333" }}>NLP Sentiment Analysis</h4>
+              <p style={{ margin: 0, fontSize: 14, color: "#666" }}>BERT and Falcon 7B fine-tuning</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section style={sectionStyle}>
