@@ -6,7 +6,7 @@ const Portfolio = () => {
       <header style={{ textAlign: "center", marginBottom: 40 }}>
         <div style={{ marginBottom: 20 }}>
           <img 
-            src="/suraj.png" 
+            src={require("./suraj.png")} 
             alt="Suraj Anand" 
             style={{ 
               width: 150, 
