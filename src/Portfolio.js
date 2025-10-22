@@ -218,63 +218,152 @@ const Portfolio = () => {
             fontWeight: "500", 
             fontSize: "1rem",
             color: "rgba(255,255,255,0.9)",
-            margin: "0 0 15px 0",
+            margin: "0 0 20px 0",
             textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
             textAlign: "center",
             lineHeight: "1.4"
           }}>
-            M.Tech Computer Science & Engineering Student | NVIDIA ASIC Engineer
+            M.Tech Computer Science & Engineering | Ex - NVIDIA ASIC Engineer
           </p>
+          
+          {/* Contact Section */}
           <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            width: '100%'
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(20px)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            padding: "20px",
+            borderRadius: 15,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.1)",
+            transition: "all 0.3s ease"
           }}>
-            <a href="tel:+917050412421" style={{ 
-              color: "white", 
-              textDecoration: "none",
-              padding: "8px 16px",
-              background: "rgba(255,255,255,0.2)",
-              borderRadius: "20px",
-              border: "1px solid rgba(255,255,255,0.3)",
-              transition: "all 0.3s ease",
-              backdropFilter: "blur(10px)",
+            <h3 style={{
+              background: "linear-gradient(45deg, #ff6b9d, #c44569, #f8b500)",
+              backgroundSize: "200% 200%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontSize: "1.2rem",
+              fontWeight: "700",
+              marginBottom: 15,
               textAlign: "center",
-              fontSize: "0.8rem",
-              fontWeight: "500"
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "rgba(255,255,255,0.3)";
-              e.target.style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "rgba(255,255,255,0.2)";
-              e.target.style.transform = "translateY(0)";
-            }}
-            >📞 91 70504 12421</a>
-            <a href="mailto:surajanand200@gmail.com" style={{ 
-              color: "white", 
-              textDecoration: "none",
-              padding: "8px 16px",
-              background: "rgba(255,255,255,0.2)",
-              borderRadius: "20px",
-              border: "1px solid rgba(255,255,255,0.3)",
-              transition: "all 0.3s ease",
-              backdropFilter: "blur(10px)",
-              textAlign: "center",
-              fontSize: "0.8rem",
-              fontWeight: "500"
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "rgba(255,255,255,0.3)";
-              e.target.style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "rgba(255,255,255,0.2)";
-              e.target.style.transform = "translateY(0)";
-            }}
-            >✉️ surajanand200@gmail.com</a>
+              animation: "gradientShift 4s ease infinite"
+            }}>📞 Contact</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
+              <a href="mailto:surajanand200@gmail.com" style={{
+                background: 'rgba(255,255,255,0.1)',
+                padding: '12px',
+                borderRadius: '10px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                textDecoration: 'none',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                transition: 'all 0.3s ease',
+                fontSize: '0.8rem'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.2)';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.1)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+              >
+                <div style={{ fontSize: '1.2rem' }}>✉️</div>
+                <div>
+                  <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>Email</h4>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>surajanand200@gmail.com</p>
+                </div>
+              </a>
+              
+              <a href="tel:+917050412421" style={{
+                background: 'rgba(255,255,255,0.1)',
+                padding: '12px',
+                borderRadius: '10px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                textDecoration: 'none',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                transition: 'all 0.3s ease',
+                fontSize: '0.8rem'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.2)';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.1)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+              >
+                <div style={{ fontSize: '1.2rem' }}>📱</div>
+                <div>
+                  <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>Phone</h4>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>91 70504 12421</p>
+                </div>
+              </a>
+              
+              <a href="https://www.linkedin.com/in/surajanand2000/" target="_blank" rel="noreferrer" style={{
+                background: 'rgba(255,255,255,0.1)',
+                padding: '12px',
+                borderRadius: '10px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                textDecoration: 'none',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                transition: 'all 0.3s ease',
+                fontSize: '0.8rem'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.2)';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.1)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+              >
+                <div style={{ fontSize: '1.2rem' }}>💼</div>
+                <div>
+                  <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>LinkedIn</h4>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>linkedin.com/in/surajanand</p>
+                </div>
+              </a>
+              
+              <a href="https://github.com/rebelsuraj1506" target="_blank" rel="noreferrer" style={{
+                background: 'rgba(255,255,255,0.1)',
+                padding: '12px',
+                borderRadius: '10px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                textDecoration: 'none',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                transition: 'all 0.3s ease',
+                fontSize: '0.8rem'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.2)';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255,255,255,0.1)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+              >
+                <div style={{ fontSize: '1.2rem' }}>🐙</div>
+                <div>
+                  <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>GitHub</h4>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>github.com/surajanand</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -689,137 +778,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section 
-        style={{
-          ...sectionStyle,
-          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-          opacity: isVisible ? 1 : 0,
-          transition: 'all 0.8s ease-out 1.2s'
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.transform = 'translateY(-5px)';
-          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
-        }}
-      >
-        <h2 style={sectionTitle}>📞 Contact</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-          <a href="mailto:surajanand200@gmail.com" style={{
-            background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '15px',
-            border: '1px solid rgba(255,255,255,0.2)',
-            textDecoration: 'none',
-            color: 'white',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.2)';
-            e.target.style.transform = 'translateY(-5px)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.1)';
-            e.target.style.transform = 'translateY(0)';
-          }}
-          >
-            <div style={{ fontSize: '2rem' }}>✉️</div>
-            <div>
-              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>Email</h4>
-              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>surajanand200@gmail.com</p>
-            </div>
-          </a>
-          
-          <a href="tel:+917050412421" style={{
-            background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '15px',
-            border: '1px solid rgba(255,255,255,0.2)',
-            textDecoration: 'none',
-            color: 'white',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.2)';
-            e.target.style.transform = 'translateY(-5px)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.1)';
-            e.target.style.transform = 'translateY(0)';
-          }}
-          >
-            <div style={{ fontSize: '2rem' }}>📱</div>
-            <div>
-              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>Phone</h4>
-              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>91 70504 12421</p>
-            </div>
-          </a>
-          
-          <a href="https://www.linkedin.com/in/surajanand2000/" target="_blank" rel="noreferrer" style={{
-            background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '15px',
-            border: '1px solid rgba(255,255,255,0.2)',
-            textDecoration: 'none',
-            color: 'white',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.2)';
-            e.target.style.transform = 'translateY(-5px)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.1)';
-            e.target.style.transform = 'translateY(0)';
-          }}
-          >
-            <div style={{ fontSize: '2rem' }}>💼</div>
-            <div>
-              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>LinkedIn</h4>
-              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>linkedin.com/in/surajanand</p>
-            </div>
-          </a>
-          
-          <a href="https://github.com/rebelsuraj1506" target="_blank" rel="noreferrer" style={{
-            background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '15px',
-            border: '1px solid rgba(255,255,255,0.2)',
-            textDecoration: 'none',
-            color: 'white',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '15px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.2)';
-            e.target.style.transform = 'translateY(-5px)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'rgba(255,255,255,0.1)';
-            e.target.style.transform = 'translateY(0)';
-          }}
-          >
-            <div style={{ fontSize: '2rem' }}>🐙</div>
-            <div>
-              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem' }}>GitHub</h4>
-              <p style={{ margin: 0, fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)' }}>github.com/surajanand</p>
-            </div>
-          </a>
-        </div>
-      </section>
       </div>
     </>
   );
