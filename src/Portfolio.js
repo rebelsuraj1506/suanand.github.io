@@ -18,8 +18,20 @@ const Portfolio = () => {
         }
         html, body {
           height: 100%;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden; /* Prevent horizontal overscroll */
+          overflow-y: auto;   /* Allow vertical scroll but avoid bounce */
+          overscroll-behavior: contain; /* Prevent scroll chaining or bounce effect */
           background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
           background-attachment: fixed;
+        }
+        #root, .main-container { /* assuming main container wraps all content */
+        position: relative;
+        min-height: 100vh;  
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         }
         @keyframes rotate {
           from { transform: rotate(0deg); }
