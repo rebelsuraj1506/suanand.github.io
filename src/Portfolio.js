@@ -204,32 +204,34 @@ const Portfolio = () => {
             textAlign: "center"
           }}>Suraj Anand</h1>
           <p style={{ 
-            fontWeight: "600", 
-            fontSize: "1.2rem",
+            fontWeight: "500", 
+            fontSize: "1rem",
             color: "rgba(255,255,255,0.9)",
-            margin: "0 0 20px 0",
+            margin: "0 0 15px 0",
             textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
-            textAlign: "center"
+            textAlign: "center",
+            lineHeight: "1.4"
           }}>
             M.Tech Computer Science & Engineering Student | NVIDIA ASIC Engineer
           </p>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '15px',
+            gap: '10px',
             width: '100%'
           }}>
             <a href="tel:+917050412421" style={{ 
               color: "white", 
               textDecoration: "none",
-              padding: "12px 20px",
+              padding: "8px 16px",
               background: "rgba(255,255,255,0.2)",
-              borderRadius: "25px",
-              border: "2px solid rgba(255,255,255,0.3)",
+              borderRadius: "20px",
+              border: "1px solid rgba(255,255,255,0.3)",
               transition: "all 0.3s ease",
               backdropFilter: "blur(10px)",
               textAlign: "center",
-              fontSize: "0.9rem"
+              fontSize: "0.8rem",
+              fontWeight: "500"
             }}
             onMouseEnter={(e) => {
               e.target.style.background = "rgba(255,255,255,0.3)";
@@ -243,14 +245,15 @@ const Portfolio = () => {
             <a href="mailto:surajanand200@gmail.com" style={{ 
               color: "white", 
               textDecoration: "none",
-              padding: "12px 20px",
+              padding: "8px 16px",
               background: "rgba(255,255,255,0.2)",
-              borderRadius: "25px",
-              border: "2px solid rgba(255,255,255,0.3)",
+              borderRadius: "20px",
+              border: "1px solid rgba(255,255,255,0.3)",
               transition: "all 0.3s ease",
               backdropFilter: "blur(10px)",
               textAlign: "center",
-              fontSize: "0.9rem"
+              fontSize: "0.8rem",
+              fontWeight: "500"
             }}
             onMouseEnter={(e) => {
               e.target.style.background = "rgba(255,255,255,0.3)";
@@ -286,31 +289,31 @@ const Portfolio = () => {
               backgroundSize: "200% 200%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              fontSize: "1.6rem",
+              fontSize: "1.4rem",
               fontWeight: "700",
-              marginBottom: 20,
+              marginBottom: 15,
               animation: "gradientShift 4s ease infinite"
             }}>🎓 Education</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div style={{
                 background: 'rgba(255,255,255,0.1)',
-                padding: '15px',
-                borderRadius: '10px',
+                padding: '12px',
+                borderRadius: '8px',
                 border: '1px solid rgba(255,255,255,0.2)'
               }}>
-                <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.1rem' }}>IIT Bhubaneswar</h3>
-                <p style={{ color: 'rgba(255,255,255,0.9)', margin: '3px 0', fontSize: '0.9rem' }}>M.Tech Computer Science (2023-2025)</p>
-                <p style={{ color: '#4ecdc4', margin: '3px 0', fontWeight: '600', fontSize: '0.9rem' }}>CGPA: 8.06</p>
+                <h3 style={{ color: 'white', margin: '0 0 6px 0', fontSize: '1rem' }}>IIT Bhubaneswar</h3>
+                <p style={{ color: 'rgba(255,255,255,0.9)', margin: '2px 0', fontSize: '0.85rem' }}>M.Tech Computer Science (2023-2025)</p>
+                <p style={{ color: '#4ecdc4', margin: '2px 0', fontWeight: '600', fontSize: '0.85rem' }}>CGPA: 8.06</p>
               </div>
               <div style={{
                 background: 'rgba(255,255,255,0.1)',
-                padding: '15px',
-                borderRadius: '10px',
+                padding: '12px',
+                borderRadius: '8px',
                 border: '1px solid rgba(255,255,255,0.2)'
               }}>
-                <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.1rem' }}>Bhagalpur College of Engineering</h3>
-                <p style={{ color: 'rgba(255,255,255,0.9)', margin: '3px 0', fontSize: '0.9rem' }}>B.Tech Computer Science (2018-2021)</p>
-                <p style={{ color: '#4ecdc4', margin: '3px 0', fontWeight: '600', fontSize: '0.9rem' }}>CGPA: 8.08</p>
+                <h3 style={{ color: 'white', margin: '0 0 6px 0', fontSize: '1rem' }}>Bhagalpur College of Engineering</h3>
+                <p style={{ color: 'rgba(255,255,255,0.9)', margin: '2px 0', fontSize: '0.85rem' }}>B.Tech Computer Science (2018-2021)</p>
+                <p style={{ color: '#4ecdc4', margin: '2px 0', fontWeight: '600', fontSize: '0.85rem' }}>CGPA: 8.08</p>
               </div>
             </div>
           </div>
@@ -335,9 +338,9 @@ const Portfolio = () => {
         }}
       >
         <h2 style={sectionTitle}>💻 Technical Skills</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div>
-            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Programming Languages</h3>
+            <h3 style={{ color: 'white', marginBottom: '12px', fontSize: '1.1rem' }}>Programming Languages</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['C', 'C++', 'Python'].map((skill, index) => (
                 <span key={index} style={{
@@ -365,7 +368,7 @@ const Portfolio = () => {
           </div>
           
           <div>
-            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Core Concepts</h3>
+            <h3 style={{ color: 'white', marginBottom: '12px', fontSize: '1.1rem' }}>Core Concepts</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['Data Structures & Algorithms', 'Object-Oriented Programming (OOP)', 'Operating Systems', 'Computer Architecture'].map((skill, index) => (
                 <span key={index} style={{
@@ -393,7 +396,7 @@ const Portfolio = () => {
           </div>
           
           <div>
-            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Web and Database</h3>
+            <h3 style={{ color: 'white', marginBottom: '12px', fontSize: '1.1rem' }}>Web and Database</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['MySQL', 'HTML', 'CSS', 'React.js', 'Bootstrap'].map((skill, index) => (
                 <span key={index} style={{
@@ -421,7 +424,7 @@ const Portfolio = () => {
           </div>
 
           <div>
-            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Tools and Platforms</h3>
+            <h3 style={{ color: 'white', marginBottom: '12px', fontSize: '1.1rem' }}>Tools and Platforms</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['VS Code', 'Google Colab', 'Git', 'GitHub', 'Docker', 'AWS'].map((skill, index) => (
                 <span key={index} style={{
@@ -449,7 +452,7 @@ const Portfolio = () => {
           </div>
 
           <div>
-            <h3 style={{ color: 'white', marginBottom: '15px', fontSize: '1.2rem' }}>Scripting and OS Commands</h3>
+            <h3 style={{ color: 'white', marginBottom: '12px', fontSize: '1.1rem' }}>Scripting and OS Commands</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['Shell Scripting (Bash)', 'Linux Commands'].map((skill, index) => (
                 <span key={index} style={{
@@ -560,60 +563,60 @@ const Portfolio = () => {
         }}
       >
         <h2 style={sectionTitle}>🚀 Projects</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: "25px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '25px',
-            borderRadius: '15px',
+            padding: '20px',
+            borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.3rem' }}>RSNA2023: Abdominal Trauma Detection | Computer Vision, CNN, Tensorflow, Python</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '1rem', fontWeight: '600' }}>2023</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px' }}>
-              <li style={{ marginBottom: '8px' }}>Orchestrated a successful collaborative initiative in a high-stakes Kaggle challenge, achieving a coveted bronze medal on the public leaderboard.</li>
-              <li style={{ marginBottom: '8px' }}>Engineered an advanced classification model capable of precise categorization of segmented images across diverse injury types, demonstrating exceptional technical expertise and innovation.</li>
+            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>RSNA2023: Abdominal Trauma Detection | Computer Vision, CNN, Tensorflow, Python</h3>
+            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2023</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Orchestrated a successful collaborative initiative in a high-stakes Kaggle challenge, achieving a coveted bronze medal on the public leaderboard.</li>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Engineered an advanced classification model capable of precise categorization of segmented images across diverse injury types, demonstrating exceptional technical expertise and innovation.</li>
             </ul>
           </div>
 
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '25px',
-            borderRadius: '15px',
+            padding: '20px',
+            borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.3rem' }}>Vehicle Number Plate Detection and Number Recognition | CNN, Tensorflow, Python</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '1rem', fontWeight: '600' }}>2024</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px' }}>
-              <li style={{ marginBottom: '8px' }}>Conducted license plate detection through contour detection and utilized YOLO v3 for enhanced accuracy.</li>
-              <li style={{ marginBottom: '8px' }}>Implemented character segmentation and recognition using CNN, achieving an end-to-end accuracy rate of 72%.</li>
+            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>Vehicle Number Plate Detection and Number Recognition | CNN, Tensorflow, Python</h3>
+            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2024</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Conducted license plate detection through contour detection and utilized YOLO v3 for enhanced accuracy.</li>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Implemented character segmentation and recognition using CNN, achieving an end-to-end accuracy rate of 72%.</li>
             </ul>
           </div>
 
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '25px',
-            borderRadius: '15px',
+            padding: '20px',
+            borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.3rem' }}>Natural Language Processing | NLP</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '1rem', fontWeight: '600' }}>2024</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px' }}>
-              <li style={{ marginBottom: '8px' }}>Scratch Implementation: Tokenization, Skip-gram, Bag-of-Word, n-gram</li>
-              <li style={{ marginBottom: '8px' }}>Conducted sentiment analysis on the SST2 dataset (67k sentences) and a movie reviews dataset, achieving accuracies of 93.23% and 86.60% respectively using BERT.</li>
-              <li style={{ marginBottom: '8px' }}>Fine-tuned the Falcon 7B Instruct Model using QLoRA and LoRA techniques for question-answering.</li>
+            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>Natural Language Processing | NLP</h3>
+            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2024</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Scratch Implementation: Tokenization, Skip-gram, Bag-of-Word, n-gram</li>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Conducted sentiment analysis on the SST2 dataset (67k sentences) and a movie reviews dataset, achieving accuracies of 93.23% and 86.60% respectively using BERT.</li>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Fine-tuned the Falcon 7B Instruct Model using QLoRA and LoRA techniques for question-answering.</li>
             </ul>
           </div>
 
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '25px',
-            borderRadius: '15px',
+            padding: '20px',
+            borderRadius: '12px',
             border: '1px solid rgba(255,255,255,0.2)'
           }}>
-            <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.3rem' }}>Hostel Management System | Web Technology, HTML/CSS, Javascript</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '1rem', fontWeight: '600' }}>2021</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px' }}>
-              <li style={{ marginBottom: '8px' }}>Built a web application for hostel management, using technologies like HTML/CSS, JavaScript, Bootstrap, PHP, and MySQL.</li>
+            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>Hostel Management System | Web Technology, HTML/CSS, Javascript</h3>
+            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2021</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
+              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Built a web application for hostel management, using technologies like HTML/CSS, JavaScript, Bootstrap, PHP, and MySQL.</li>
             </ul>
           </div>
         </div>
@@ -830,11 +833,11 @@ const sectionTitle = {
   backgroundSize: "200% 200%",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
-  fontSize: "1.8rem",
+  fontSize: "1.6rem",
   fontWeight: "700",
-  marginBottom: 20,
+  marginBottom: 15,
   position: "relative",
-  paddingBottom: 10,
+  paddingBottom: 8,
   animation: "gradientShift 4s ease infinite"
 };
 
