@@ -343,7 +343,7 @@ const Portfolio = () => {
                 <div style={{ fontSize: '1.2rem' }}>💼</div>
                 <div>
                   <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>LinkedIn</h4>
-                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>linkedin.com/in/surajanand</p>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>linkedin.com/in/surajanand2000</p>
                 </div>
               </a>
               
@@ -372,7 +372,7 @@ const Portfolio = () => {
                 <div style={{ fontSize: '1.2rem' }}>🐙</div>
                 <div>
                   <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>GitHub</h4>
-                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>github.com/surajanand</p>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>github.com/rebelsuraj1506</p>
                 </div>
               </a>
             </div>
