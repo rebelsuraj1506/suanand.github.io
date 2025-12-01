@@ -282,7 +282,11 @@ const Portfolio = () => {
                 e.target.style.transform = 'translateY(0)';
               }}
               >
-                <div style={{ fontSize: '1.2rem' }}>✉️</div>
+                <div style={{ width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+                  </svg>
+                </div>
                 <div>
                   <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>Email</h4>
                   <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>surajanand200@gmail.com</p>
@@ -659,76 +663,231 @@ const Portfolio = () => {
       </section>
 
       <section 
+        id="projects"
         style={{
           ...sectionStyle,
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           opacity: isVisible ? 1 : 0,
-          transition: 'all 0.8s ease-out 0.8s'
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.transform = 'translateY(-5px)';
-          e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+          transition: 'all 0.8s ease-out 0.8s',
+          padding: '40px 60px'
         }}
       >
         <h2 style={sectionTitle}>🚀 Projects</h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div style={{ 
+          display: "grid", 
+          gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", 
+          gap: "30px",
+          marginTop: '30px'
+        }}>
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '12px',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }}>
-            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>RSNA2023: Abdominal Trauma Detection | Computer Vision, CNN, Tensorflow, Python</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2023</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Orchestrated a successful collaborative initiative in a high-stakes Kaggle challenge, achieving a coveted bronze medal on the public leaderboard.</li>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Engineered an advanced classification model capable of precise categorization of segmented images across diverse injury types, demonstrating exceptional technical expertise and innovation.</li>
+            backdropFilter: 'blur(10px)',
+            padding: '25px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+          }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(90deg, #ff6b9d, #c44569, #f8b500)',
+              backgroundSize: '200% 100%',
+              animation: 'gradientShift 3s ease infinite'
+            }}></div>
+            <h3 style={{ color: 'white', margin: '0 0 12px 0', fontSize: '1.3rem', fontWeight: '600', lineHeight: '1.4' }}>RSNA2023: Abdominal Trauma Detection</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '15px' }}>
+              {['Computer Vision', 'CNN', 'Tensorflow', 'Python'].map((tech, idx) => (
+                <span key={idx} style={{
+                  background: 'rgba(255,107,157,0.2)',
+                  color: '#ff6b9d',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.75rem',
+                  fontWeight: '500',
+                  border: '1px solid rgba(255,107,157,0.3)'
+                }}>{tech}</span>
+              ))}
+            </div>
+            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '0.9rem', fontWeight: '600' }}>2023</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px', margin: 0, fontSize: '0.9rem', lineHeight: '1.6' }}>
+              <li style={{ marginBottom: '8px' }}>Orchestrated a successful collaborative initiative in a high-stakes Kaggle challenge, achieving a coveted bronze medal on the public leaderboard.</li>
+              <li style={{ marginBottom: '8px' }}>Engineered an advanced classification model capable of precise categorization of segmented images across diverse injury types, demonstrating exceptional technical expertise and innovation.</li>
             </ul>
           </div>
 
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '12px',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }}>
-            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>Vehicle Number Plate Detection and Number Recognition | CNN, Tensorflow, Python</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2024</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Conducted license plate detection through contour detection and utilized YOLO v3 for enhanced accuracy.</li>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Implemented character segmentation and recognition using CNN, achieving an end-to-end accuracy rate of 72%.</li>
+            backdropFilter: 'blur(10px)',
+            padding: '25px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+          }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(90deg, #4ecdc4, #45b7d1, #96ceb4)',
+              backgroundSize: '200% 100%',
+              animation: 'gradientShift 3s ease infinite'
+            }}></div>
+            <h3 style={{ color: 'white', margin: '0 0 12px 0', fontSize: '1.3rem', fontWeight: '600', lineHeight: '1.4' }}>Vehicle Number Plate Detection</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '15px' }}>
+              {['CNN', 'Tensorflow', 'Python', 'YOLO'].map((tech, idx) => (
+                <span key={idx} style={{
+                  background: 'rgba(78,205,196,0.2)',
+                  color: '#4ecdc4',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.75rem',
+                  fontWeight: '500',
+                  border: '1px solid rgba(78,205,196,0.3)'
+                }}>{tech}</span>
+              ))}
+            </div>
+            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '0.9rem', fontWeight: '600' }}>2024</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px', margin: 0, fontSize: '0.9rem', lineHeight: '1.6' }}>
+              <li style={{ marginBottom: '8px' }}>Conducted license plate detection through contour detection and utilized YOLO v3 for enhanced accuracy.</li>
+              <li style={{ marginBottom: '8px' }}>Implemented character segmentation and recognition using CNN, achieving an end-to-end accuracy rate of 72%.</li>
             </ul>
           </div>
 
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '12px',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }}>
-            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>Natural Language Processing | NLP</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2024</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Scratch Implementation: Tokenization, Skip-gram, Bag-of-Word, n-gram</li>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Conducted sentiment analysis on the SST2 dataset (67k sentences) and a movie reviews dataset, achieving accuracies of 93.23% and 86.60% respectively using BERT.</li>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Fine-tuned the Falcon 7B Instruct Model using QLoRA and LoRA techniques for question-answering.</li>
+            backdropFilter: 'blur(10px)',
+            padding: '25px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+          }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(90deg, #f8b500, #ff6b9d, #c44569)',
+              backgroundSize: '200% 100%',
+              animation: 'gradientShift 3s ease infinite'
+            }}></div>
+            <h3 style={{ color: 'white', margin: '0 0 12px 0', fontSize: '1.3rem', fontWeight: '600', lineHeight: '1.4' }}>Natural Language Processing</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '15px' }}>
+              {['NLP', 'BERT', 'Falcon 7B', 'Python'].map((tech, idx) => (
+                <span key={idx} style={{
+                  background: 'rgba(248,181,0,0.2)',
+                  color: '#f8b500',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.75rem',
+                  fontWeight: '500',
+                  border: '1px solid rgba(248,181,0,0.3)'
+                }}>{tech}</span>
+              ))}
+            </div>
+            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '0.9rem', fontWeight: '600' }}>2024</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px', margin: 0, fontSize: '0.9rem', lineHeight: '1.6' }}>
+              <li style={{ marginBottom: '8px' }}>Scratch Implementation: Tokenization, Skip-gram, Bag-of-Word, n-gram</li>
+              <li style={{ marginBottom: '8px' }}>Conducted sentiment analysis on the SST2 dataset (67k sentences) and a movie reviews dataset, achieving accuracies of 93.23% and 86.60% respectively using BERT.</li>
+              <li style={{ marginBottom: '8px' }}>Fine-tuned the Falcon 7B Instruct Model using QLoRA and LoRA techniques for question-answering.</li>
             </ul>
           </div>
 
           <div style={{
             background: 'rgba(255,255,255,0.1)',
-            padding: '20px',
-            borderRadius: '12px',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }}>
-            <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem' }}>Hostel Management System | Web Technology, HTML/CSS, Javascript</h3>
-            <p style={{ color: '#4ecdc4', margin: '0 0 12px 0', fontSize: '0.9rem', fontWeight: '600' }}>2021</p>
-            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '18px' }}>
-              <li style={{ marginBottom: '6px', fontSize: '0.9rem' }}>Built a web application for hostel management, using technologies like HTML/CSS, JavaScript, Bootstrap, PHP, and MySQL.</li>
+            backdropFilter: 'blur(10px)',
+            padding: '25px',
+            borderRadius: '15px',
+            border: '1px solid rgba(255,255,255,0.2)',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+          }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(90deg, #96ceb4, #feca57, #4ecdc4)',
+              backgroundSize: '200% 100%',
+              animation: 'gradientShift 3s ease infinite'
+            }}></div>
+            <h3 style={{ color: 'white', margin: '0 0 12px 0', fontSize: '1.3rem', fontWeight: '600', lineHeight: '1.4' }}>Hostel Management System</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '15px' }}>
+              {['HTML/CSS', 'JavaScript', 'PHP', 'MySQL'].map((tech, idx) => (
+                <span key={idx} style={{
+                  background: 'rgba(150,206,180,0.2)',
+                  color: '#96ceb4',
+                  padding: '4px 12px',
+                  borderRadius: '12px',
+                  fontSize: '0.75rem',
+                  fontWeight: '500',
+                  border: '1px solid rgba(150,206,180,0.3)'
+                }}>{tech}</span>
+              ))}
+            </div>
+            <p style={{ color: '#4ecdc4', margin: '0 0 15px 0', fontSize: '0.9rem', fontWeight: '600' }}>2021</p>
+            <ul style={{ color: 'rgba(255,255,255,0.9)', paddingLeft: '20px', margin: 0, fontSize: '0.9rem', lineHeight: '1.6' }}>
+              <li style={{ marginBottom: '8px' }}>Built a web application for hostel management, using technologies like HTML/CSS, JavaScript, Bootstrap, PHP, and MySQL.</li>
             </ul>
           </div>
         </div>
