@@ -314,7 +314,7 @@ const Portfolio = () => {
                 <div style={{ fontSize: '1.2rem' }}>📱</div>
                 <div>
                   <h4 style={{ margin: '0 0 2px 0', fontSize: '0.8rem' }}>Phone</h4>
-                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>91 70504 12421</p>
+                  <p style={{ margin: 0, fontSize: '0.7rem', color: 'rgba(255,255,255,0.8)' }}>+91 70504 12421</p>
                 </div>
               </a>
               
